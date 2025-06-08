@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>10 만들기 보수 게임</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #f2f2f2;
+      padding: 40px;
+    }
+    #game-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input {
+      padding: 10px;
+      font-size: 16px;
+      width: 100px;
+      text-align: center;
+    }
+    button {
+      padding: 10px 20px;
+      margin-top: 10px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .feedback {
+      margin-top: 15px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="game-box">
+    <h2>🎮 10 만들기 보수 게임</h2>
+    <p id="question">숫자를 불러오는 중...</p>
+    <input type="number" id="answerInput" placeholder="보수 입력">
+    <br>
+    <button onclick="checkAnswer()">제출</button>
+    <p class="feedback" id="feedback"></p>
+    <p id="scoreBoard">점수: 0 / 0</p>
+  </div>
+
+  <script>
+    let currentNumber = 0;
+    let score = 0;
+    let total = 0;
+
+    function getRandomNumber() {
+      return Math.floor(Math.random() * 9) + 1; // 1~9
+    }
+
+    function loadQuestion() {
+      currentNumber = getRandomNumber();
+      document.getElementById('question').textContent = `👉 숫자 ${currentNumber}의 10 보수는?`;
+      document.getElementById('answerInput').value = '';
+      document.getElementById('feedback').textContent = '';
+    }
+
+    function checkAnswer() {
+      const userInput = parseInt(document.getElementById('answerInput').value);
+      const correctAnswer = 10 - currentNumber;
+      total++;
+
+      if (userInput === correctAnswer) {
+        score++;
+        document.getElementById('feedback').textContent = '✅ 정답입니다!';
+        document.getElementById('feedback').style.color = 'green';
+      } else {
+        document.getElementById('feedback').textContent = `❌ 틀렸어요! 정답은 ${correctAnswer}입니다.`;
+        document.getElementById('feedback').style.color = 'red';
+      }
+
+      document.getElementById('scoreBoard').textContent = `점수: ${score} / ${total}`;
+      setTimeout(loadQuestion, 1000); // 1초 후 다음 문제
+    }
+
+    // 첫 문제 로드
+    window.onload = loadQuestion;
+  </script>
+
+</body>
+</html>
