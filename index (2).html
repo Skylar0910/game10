@@ -5,13 +5,13 @@
   <title>퍼즐매치 게임</title>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <style>
-   body {
-  background: #fff9db;
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+    body {
+      background: #fff9db;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
     .container { display: flex; flex-direction: row; gap: 44px; }
     .side-panel {
       min-width: 242px; max-width: 270px;
@@ -21,7 +21,7 @@
     }
     .help {
       background:rgba(253, 224, 71, 0.30);
-      color:red; /* 빨강색으로 변경됨 */
+      color:blue; /* 파란색으로 수정됨 */
       border-radius: 14px; font-size:1.08rem; font-weight:500;
       padding:10px 16px 11px 16px; margin-bottom:1.6rem; text-align:center;
     }
@@ -123,29 +123,8 @@
   <div id="game-board">
     <div class="board-wrap" style="position:relative;">
       <div class="board"></div>
-      <button class="btn center-absolute-btn" id="start-btn" style="display:block;">게임시작</button>
-    </div>
-    <div class="btn-wrap" style="width:100%;text-align:center;">
-      <button class="btn" id="fill-btn" style="margin-top:14px;">블럭채우기(1회)</button>
-    </div>
-    <div id="clear-msg" class="clear-text" style="display:none;">🎉 게임 클리어! 🎉</div>
-  </div>
-  <div class="side-panel">
-    <div class="help">
-      블록을 선택 후 인접한 블럭을<br>
-	  선택하여 자리를 바꾸세요<br>
-	  <br>      
-	  <span style="color:#60a5fa;font-weight:700;">3개 이상 같은 색상</span>을 맞추면<br>
-      블록이 파괴되고 점수를 얻어요!
-    </div>
-    <div style="font-size:1.35rem;font-weight:bold;color:#2563eb;margin-bottom:4px;">점수: <span id="score">0</span></div>
-    <div style="font-size:1.07rem;margin-bottom:7px;">목표점수: <span style="color:#4f46e5;font-weight:700;">50</span></div>
-    <div class="score-bar-outer"><div class="score-bar-inner" id="score-bar" style="width:0%;"></div></div>
-    <div style="margin-top:23px;color:#475569;font-size:.95rem;text-align:center;">50점 달성시 클리어!</div>
-  </div>
-</div>
+      <button class="btn center-absolute-btn" id="start-btn" style="di
 
-<!-- JavaScript는 그대로 유지됨 -->
 <script>
   // (생략 - 위에서 준 JS 코드 전체 그대로 유지됨)
 </script>
